@@ -5,6 +5,14 @@ const ConversionChart = ({ data }) => {
   // 按日期排序
   const sortedData = [...data].sort((a, b) => new Date(a.date) - new Date(b.date))
 
+  // 格式化日期显示（将 2024-01-01 格式化为 01/01）
+  const formatDate = (dateStr) => {
+    const date = new Date(dateStr)
+    const month = String(date.getMonth() + 1).padStart(2, '0')
+    const day = String(date.getDate()).padStart(2, '0')
+    return `${month}/${day}`
+  }
+
   const option = {
     backgroundColor: 'transparent',
     title: {
@@ -28,13 +36,14 @@ const ConversionChart = ({ data }) => {
         color: '#FFFFFF',
       },
       formatter: (params) => {
-        const date = params[0].axisValue
+        const dataIndex = params[0].dataIndex
+        const originalDate = sortedData[dataIndex].date
         let result = `<div style="padding: 5px;">
-          <div style="margin-bottom: 5px; font-weight: bold;">${date}</div>`
+          <div style="margin-bottom: 5px; font-weight: bold; color: #FFFFFF;">${originalDate}</div>`
         
         params.forEach(param => {
           result += `<div style="margin-top: 5px;">
-            ${param.marker} ${param.seriesName}: ${param.value}
+            ${param.marker} ${param.seriesName}: <span style="font-weight: bold;">${param.value.toLocaleString()}</span>
           </div>`
         })
         
@@ -62,13 +71,13 @@ const ConversionChart = ({ data }) => {
     grid: {
       left: '3%',
       right: '4%',
-      bottom: '3%',
+      bottom: '8%',
       top: 100,
       containLabel: true,
     },
     xAxis: {
       type: 'category',
-      data: sortedData.map(item => item.date),
+      data: sortedData.map(item => formatDate(item.date)),
       boundaryGap: false,
       axisLine: {
         lineStyle: {
@@ -78,6 +87,8 @@ const ConversionChart = ({ data }) => {
       axisLabel: {
         color: '#A8A8A8',
         rotate: 45,
+        fontSize: 11,
+        interval: 0, // 显示所有标签
       },
     },
     yAxis: {
