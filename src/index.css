@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #000000;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #161823;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FE2C55;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d9244a;
+}
+
+/* 霓虹效果 */
+.neon-text-pink {
+  text-shadow: 0 0 10px rgba(254, 44, 85, 0.8),
+               0 0 20px rgba(254, 44, 85, 0.6),
+               0 0 30px rgba(254, 44, 85, 0.4);
+}
+
+.neon-text-cyan {
+  text-shadow: 0 0 10px rgba(37, 244, 238, 0.8),
+               0 0 20px rgba(37, 244, 238, 0.6),
+               0 0 30px rgba(37, 244, 238, 0.4);
+}
+
+.neon-border-pink {
+  border: 1px solid #FE2C55;
+  box-shadow: 0 0 10px rgba(254, 44, 85, 0.5),
+              inset 0 0 10px rgba(254, 44, 85, 0.2);
+}
+
+.neon-border-cyan {
+  border: 1px solid #25F4EE;
+  box-shadow: 0 0 10px rgba(37, 244, 238, 0.5),
+              inset 0 0 10px rgba(37, 244, 238, 0.2);
+}
+
+/* Ant Design 样式覆盖 */
+.ant-layout {
+  background: #000000 !important;
+}
+
+.ant-layout-sider {
+  background: #161823 !important;
+}
+
+.ant-menu {
+  background: transparent !important;
+}
+
+.ant-card {
+  background: #161823 !important;
+  border: 1px solid #2F2F2F !important;
+}
+
+.ant-upload.ant-upload-drag {
+  background: #161823 !important;
+  border-color: #FE2C55 !important;
+}
+
+.ant-upload.ant-upload-drag:hover {
+  border-color: #25F4EE !important;
+}
