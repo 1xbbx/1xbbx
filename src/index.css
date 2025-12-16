@@ -68,6 +68,18 @@ body {
               inset 0 0 10px rgba(37, 244, 238, 0.2);
 }
 
+.neon-border-green {
+  border: 1px solid #52C41A;
+  box-shadow: 0 0 10px rgba(82, 196, 26, 0.5),
+              inset 0 0 10px rgba(82, 196, 26, 0.2);
+}
+
+.neon-border-yellow {
+  border: 1px solid #FFD700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5),
+              inset 0 0 10px rgba(255, 215, 0, 0.2);
+}
+
 /* Ant Design 样式覆盖 */
 .ant-layout {
   background: #000000 !important;
